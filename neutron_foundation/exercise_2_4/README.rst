@@ -112,3 +112,20 @@
 
 大家思考一下为什么可以成功？
 
+10. 恢复环境
+===========
+
+回到步骤7窗口
+
+命令
+----
+
+    nova delete vm2
+
+    neutron net-update net1 --port-security-enabled true
+
+拷贝步骤7里面的Security group uuid，为该Security group添加回TCP 22和ICMP的放行规则
+
+    neutron security-group-rule-create <security group uuid> --direction ingress --ethertype ipv4 --protocol icmp --remote-ip-prefix 0.0.0.0/0
+
+    neutron security-group-rule-create <security group uuid> --direction ingress --ethertype ipv4 --protocol tcp --port-range-min 22 --port-range-max 22 --remote-ip-prefix 0.0.0.0/0
