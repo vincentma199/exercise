@@ -64,3 +64,12 @@ DHCP练习题4 - Neutron DHCP租约
 ----
 
 查看dns server自动变成了9.9.9.9
+
+6. 恢复配置
+==========
+
+    vim /etc/neutron/neutron.conf
+
+找到dhcp_lease_duration，在前面加上#将其注释掉。重启dhcp agent。
+
+    systemctl restart devstack@q-dhcp.service
