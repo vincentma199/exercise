@@ -34,4 +34,8 @@ br-tun是需要单独部署在一台主机上的？还是和普通的网桥br-in
 
 必须要在一个主机上，这样才能相互连接
 
+我不小心把虚拟机的eth0移动到自己创建的命名空间了。用的命令：ip link set dev eth0 netns mynetns
+-----------
 
+ip netns exec mynetns ip link set eth0 netns 1
+这样应该可以将网卡移回来
