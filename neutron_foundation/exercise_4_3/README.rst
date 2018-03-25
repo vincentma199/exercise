@@ -76,7 +76,7 @@
 
 命令
 ----
-    neutron port-create net1 --fixec-ip subnet_id=<subnet uuid>
+    neutron port-create net1 --fixed-ip subnet_id=<subnet uuid>
 
 10. net1中部署新的虚机
 ====================
