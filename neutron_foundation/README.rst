@@ -46,3 +46,13 @@ ip netns exec mynetns ip link set eth0 netns 1
 虚机的12网段的路由，是通过虚机的网卡自动生成的。而虚机的通网络的其他子网的路由（也就是这里的11网段的路由），是通过dhcp生成并下发到虚机里面的。在前面讲dhcp的章节说过dhcp除了下发IP以外，还可以下发一系列的网络参数，其中就包括了路由。这是Neutron网络特别的地方，具体可以参考neutron的代码。
 
 https://github.com/openstack/neutron/blob/a0d705c0e8991b2a0b2774929c85bf71cc2a18da/neutron/agent/linux/dhcp.py#L942-L948
+
+dhcp,router,不都是属于这个租户吗，租户下的默认不是通的吗?在默认安全租，添加icmp那条，dhcp才可以ping通虚机，为何不添加，ping不通呢?
+-------
+
+在考虑安全组的时候，只有虚机端口才会应用安全组。dhcp router端口不应用安全组。所以dhcp，router端口不会认为是同一个安全组内的端口，也就应用不了默认连通的规则。
+
+租户与租户之间网络流量的通信怎么实现呢？
+----------
+
+通过配置安全组，连接路由器，可以实现跨租户的流量。
