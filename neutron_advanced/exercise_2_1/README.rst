@@ -7,9 +7,6 @@
 1. 打开DHCP的metadata中继功能
 ======================
 
-命令
----
-
     vim /etc/neutron/dhcp_agent.ini
 
 在[DEFAULT]分组下添加一行配置：
@@ -27,22 +24,16 @@ enable_isolated_metadata = true
 ---
     source ~/devstack/openrc admin admin
 
-    
     openstack project list
-    
-    记录admin对应的uuid
-    
+记录admin对应的uuid
     
     neutron security-group-list
-    
-    记录admin租户的uuid对应的安全组uuid
-    
-    
+记录admin租户的uuid对应的安全组uuid
+
     neutron  security-group-rule-create <安全组uuid> --protocol tcp --remote-ip-prefix 0.0.0.0/0
     
     neutron  security-group-rule-create <安全组uuid> --protocol icmp --remote-ip-prefix 0.0.0.0/0
-    
-    打开ping和ssh通道
+打开ping和ssh通道
     
     
 下面是实验正式内容：
@@ -68,20 +59,16 @@ enable_isolated_metadata = true
 ====
 
     nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=flat vm1
-    
-    等待虚机状态变成ACTIVE
-    
+等待虚机状态变成ACTIVE
     
     nova console-log vm1
-    
-    查看虚机启动日志，等待虚机启动完成，并提示登录
+查看虚机启动日志，等待虚机启动完成，并提示登录
     
 5. 查看虚机信息
 ====
 
     nova show vm1
-    
-    查看虚机当前的ip地址，和虚机被部署在哪个主机上“OS-EXT-SRV-ATTR:hypervisor_hostname”
+查看虚机当前的ip地址，和虚机被部署在哪个主机上“OS-EXT-SRV-ATTR:hypervisor_hostname”
     
 6. 直接登录虚机
 ====
@@ -91,8 +78,7 @@ enable_isolated_metadata = true
 7. 从虚机内访问控制节点和计算节点
 ====
 
-    在虚机内部ping 控制节点ip和计算节点ip
-    
+在虚机内部ping 控制节点ip和计算节点ip
     ping <控制节点ip>
     
     ping <计算节点ip>
