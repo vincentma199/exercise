@@ -11,7 +11,7 @@
 
 在[DEFAULT]分组下添加一行配置：
 
-enable_isolated_metadata = true
+    enable_isolated_metadata = true
 
 重启DHCP agent
 
@@ -20,8 +20,6 @@ enable_isolated_metadata = true
 2. 打开相应的安全组规则
 ====================
 
-命令
----
     source ~/devstack/openrc admin admin
 
     openstack project list
@@ -76,9 +74,10 @@ enable_isolated_metadata = true
     ssh cirros@<虚机ip地址>
     
 7. 从虚机内访问控制节点和计算节点
-====
+===============
 
-在虚机内部ping 控制节点ip和计算节点ip
+ 在虚机内部ping 控制节点ip和计算节点ip
+ 
     ping <控制节点ip>
     
     ping <计算节点ip>
