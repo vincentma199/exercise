@@ -1,5 +1,5 @@
 ====================
-实验2-1 - 创建FLAT网络
+实验2-3 - 创建VLAN网络
 ====================
 
 0. 删除之前实验的资源
@@ -24,7 +24,7 @@
 
     sudo ovs-vsctl show | grep -E "Bridge|Port|options"
 
-2. 创建flat网络
+2. 创建vlan网络
 ==============
 
     neutron net-create vlan100 --provider:network_type vlan --provider:physical_network public --provider:segmentation_id 100
@@ -53,7 +53,7 @@
 
 在controller节点上，执行
 
-    sudo tcpdump -nei -vvv ens33
+    sudo tcpdump -nei ens33
 
 注意，实验环境的网卡名可能不一样，需要确认。
 观察网络数据的vlan tag。
