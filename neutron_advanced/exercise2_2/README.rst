@@ -34,5 +34,7 @@ Horizon用户名密码是admin/nomoresecret
 ==============
 
     source ~/devstack/openrc admin admin
+    
     nova delete vm1
+    
     neutron delete flat
