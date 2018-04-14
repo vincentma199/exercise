@@ -31,7 +31,7 @@
 5. 添加虚机
 ====
 
-    nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=flat vm1
+    nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=flat --availability-zone nova:openstack-controller vm1
     
 等待虚机状态变成ACTIVE
     
