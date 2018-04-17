@@ -57,5 +57,11 @@
     sudo ovs-vsctl show | grep -E "Bridge|Port|options|tag"
 
 记录虚机端口（qvoxxxxx）对应的local vlan
+
+9. 清理环境
+=====
+
+    nova delete vm1 vm2
     
-    
+    neutron net-delete vxlan
+    
