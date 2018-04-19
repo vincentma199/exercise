@@ -35,9 +35,9 @@
 3. 用两个parent port创建两个虚机
 ==========
 
-    nova boot --image ubuntu --flavor d2 --nic port-id=<parent-port1 id> --key-name=openstack-controller vm1
+    nova boot --image ubuntu --flavor d2 --nic port-id=<parent-port1 id> --key-name=openstack-controller --availability-zone nova:openstack-controller vm1
     
-    nova boot --image ubuntu --flavor d2 --nic port-id=<parent-port2 id> --key-name=openstack-controller vm2
+    nova boot --image ubuntu --flavor d2 --nic port-id=<parent-port2 id> --key-name=openstack-controller --availability-zone nova:openstack-compute vm2
 
 等待vm1，vm2启动完成
 
