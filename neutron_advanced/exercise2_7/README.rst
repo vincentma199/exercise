@@ -70,10 +70,11 @@
 7. 重新查看arp 广播包
 ============
 
-重复步骤4，5，确定
+重复步骤4，5，确定在controller节点的网卡上，看不到arp广播包。
 
-    source ~/devstack/openrc admin admin
+8. 清理环境
+==========
+
+    nova delete vm1 vm2
     
-    nova delete vm1
-    
-    neutron delete flat
+    neutron delete vxlan
