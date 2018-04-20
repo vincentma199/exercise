@@ -58,6 +58,8 @@
     
 在虚机内部执行下面命令，如果下面命令返回较慢，且提示“unable to resolve host vm1”, 在/etc/hosts中，localhost后面加上vm1
 
+    sudo modprobe 8021q
+
     sudo ip link add link ens3 name ens3.102 type vlan id 102
     
     sudo ip link set dev ens3.102 address <sub-port1 mac address>
