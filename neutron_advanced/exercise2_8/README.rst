@@ -2,6 +2,13 @@
 实验2-8 - VLAN aware VM
 ====================
 
+0. 修改neutron-server配置，启用功能
+========
+
+    vim /etc/neutron/neutron.conf
+    
+在service_plugins里面添加trunk。
+
 1. 创建相应的网络
 ==================
 
@@ -97,5 +104,9 @@
 
     nova delete vm1 vm2
     
-    neutron net-delete vxlan
+    openstack network trunk delete trunk1 trunk2
+    
+    openstack port delete parent-port1 parent-port2 sub-port1 sub-port2
+    
+    openstack network delete parent-net sub-net
     
