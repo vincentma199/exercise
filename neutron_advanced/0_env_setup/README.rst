@@ -37,7 +37,7 @@
     
     sudo dhclient ens3
     
-之后部署计算节点
+之后修改相应的配置
 
     cd ~/devstack
     
