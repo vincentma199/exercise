@@ -31,6 +31,14 @@
     
 查看并记录当前虚机的IP地址，应该是192.168.31.X，查找当前的网卡，应该是ens3
 
+如果发现网卡状态是DOWN，且没有IP地址，执行下面的命令启动网卡。
+
+    sudo ifconfig ens3 up
+    
+    sudo dhclient ens3
+    
+之后部署计算节点
+
     cd ~/devstack
     
     vim local.conf
