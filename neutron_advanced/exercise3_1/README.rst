@@ -25,9 +25,9 @@
 3. 创建虚拟机
 ==========
 
-    nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=net1 --availability-zone nova:openstack-controller vm1
+    nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=net1 --availability-zone nova:openstack-compute vm1
     
-    nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=net2 --availability-zone nova:openstack-controller vm2
+    nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=net2 --availability-zone nova:openstack-compute vm2
 
 等待vm1，vm2启动完成
 
