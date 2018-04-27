@@ -55,7 +55,7 @@
 6. 从horizon登陆虚机
 ==========
 
-    参考视频登陆Horizon，用户名密码 admin/nomoresecret。在虚机内：
+    参考视频登陆Horizon，用户名密码 admin/nomoresecret。在虚机vm1内：
     
     ping <vm2 ip address>
 
