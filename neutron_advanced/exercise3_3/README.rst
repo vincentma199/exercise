@@ -38,7 +38,7 @@
 4. 从horizon登陆虚机
 ==========
 
-    参考视频登陆Horizon，用户名密码 admin/nomoresecret。在虚机vm1内：
+参考视频登陆Horizon，用户名密码 admin/nomoresecret。在虚机vm1内：
     
     ping <vm3 ip address>
 
@@ -57,12 +57,12 @@
 
    nova delete vm1 vm2 vm3
 
-    neutron router-interface-delete dvr subnet1
+   neutron router-interface-delete dvr subnet1
 
-    neutron router-interface-delete dvr subnet2
+   neutron router-interface-delete dvr subnet2
 
-    neutron router-delete dvr
+   neutron router-delete dvr
 
-    neutron net-delete net1
+   neutron net-delete net1
 
-    neutron net-delete net2
+   neutron net-delete net2
