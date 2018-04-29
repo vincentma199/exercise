@@ -61,6 +61,14 @@
      tcpdump -nei qr-xxxx
      
      tcpdump -nei qg-yyy
+     
+9. 观察Connection track内容
+==================
+
+在路由器namespace内，
+
+    conntrack -L | grep icmp
+
 
 9. 清理环境
 ==========
