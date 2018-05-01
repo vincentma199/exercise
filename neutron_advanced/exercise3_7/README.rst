@@ -24,7 +24,24 @@
 
     nova boot --image cirros-0.3.5-x86_64-disk --flavor 1 --nic net-name=net1 --availability-zone nova:openstack-controller vm1
 
-5. 观察router namespace里面的网络数据
+5. 关联floatingip
+==============
+
+    neutron port-list --device-id <vm1 uuid>
+    
+获得相应的port的uuid
+
+    neutron floatingip-create public --port-id <port uuid>
+
+6. 从horizon登陆虚机
+==========
+
+参考视频登陆Horizon，用户名密码 admin/nomoresecret。在虚机vm1内：
+    
+    ping 8.8.8.8
+
+
+7. 观察router namespace里面的网络数据
 ================
 
 进入router namespace
