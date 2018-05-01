@@ -1,5 +1,5 @@
 ====================
-实验3-6 - Legacy Router Floatingip
+实验3-7 - Legacy Router Floatingip
 ====================
       
 1. 创建Private network
