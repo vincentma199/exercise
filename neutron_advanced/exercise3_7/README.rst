@@ -51,3 +51,16 @@
     tcpdump -nei qr-xxx
     
     tcpdump -nei qg-yyy
+
+8. 从外网直接访问floatingip
+==============
+
+在controller节点上，
+
+    ping <floatingip 地址>
+    
+    ssh cirros@<floatingip 地址>
+    
+虚机密码是cubswin:)
+
+在虚拟机内部，看不到floatingip对应的网卡，虚拟机内部网卡还是一个私网ip地址
