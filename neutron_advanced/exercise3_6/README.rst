@@ -7,7 +7,7 @@
 
     neutron net-create net2
     
-    neutron subnet-create --name subnet2 net1 11.0.0.0/24
+    neutron subnet-create --name subnet2 net2 11.0.0.0/24
     
 3. 创建路由器，连接路由器和网路
 =================
