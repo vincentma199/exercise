@@ -72,15 +72,11 @@
     tcpdump -nei sg-xxxx
     
     tcpdump -nei qg-zzz
-
-9. 在compute节点的虚机网卡上观察网络数据
-==========
-
-    sudo tcpdump -nei tap-xxxxx
     
-从抓包的内容看，确认sg直接将网络数据发送给了虚机
+    iptables -t nat -S
 
-10. 清理环境
+
+9. 清理环境
 ========
 
     nova delete vm1
