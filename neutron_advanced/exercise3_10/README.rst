@@ -113,13 +113,17 @@
     
 确认可以获取mac地址，且mac地址是fg设备的mac地址。
 
-在计算节点的fip namespace内，根据视频的演示，删除floatingip相关的路由。再回到controller节点上执行
+在计算节点的fip namespace内，查看proxy_arp的配置。
+
+    sysctl -a | grep fg-xxx | grep proxy_arp
+
+根据视频的演示，删除floatingip相关的路由。再回到controller节点上执行
 
     arping -I br-ex <floating ip>
     
 确认无法获取mac地址。
 
-9. 清理环境
+11. 清理环境
 ========
 
     nova delete vm1
