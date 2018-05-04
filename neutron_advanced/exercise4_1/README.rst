@@ -25,7 +25,7 @@
 
 登录dhcp namespace
 
-    sudo ip netns exec dhcp-xxxxx bash
+    sudo ip netns exec qdhcp-xxxxx bash
     
     ip a
     
