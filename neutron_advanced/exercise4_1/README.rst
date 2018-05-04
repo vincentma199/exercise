@@ -20,14 +20,16 @@
 
     ps -ef | grep metadata
     
-4. 查看相关的iptables规则
+4. 查看dhcp namespace网卡信息
 ==================
 
 登录dhcp namespace
 
     sudo ip netns exec dhcp-xxxxx bash
     
-    iptables -t nat -vnL
+    ip a
+    
+169.254.169.254作为副ip挂在DHCP Server的网卡上
 
 5. 从horizon登陆虚机
 ==========
