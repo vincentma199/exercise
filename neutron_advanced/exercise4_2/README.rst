@@ -24,16 +24,14 @@
 
     ps -ef | grep metadata
     
-4. 查看router namespace网卡信息
+4. 查看router namespace内的信息
 ==================
 
 登录router namespace
 
     sudo ip netns exec qrouter-xxxxx bash
     
-    ip a
-    
-169.254.169.254作为副ip挂在DHCP Server的网卡上
+    iptables -t nat -vnL
 
 5. 从horizon登陆虚机
 ==========
@@ -52,5 +50,9 @@
 ========
 
     nova delete vm1
+
+    neutron router-interface-delete legacy subnet1
+    
+    neutron router-delete legacy
 
     neutron net-delete net1
