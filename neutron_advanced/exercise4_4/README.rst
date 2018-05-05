@@ -60,6 +60,7 @@
 6. 清理环境
 ========
 
-    nova delete server client
+    openstack server delete vm1
+    
+    openstack network delete net1
 
-    neutron net-delete net1
