@@ -42,23 +42,13 @@
     sudo ip netns exec qdhcp-xxxxx bash
     
     ssh -i ~/.ssh/id_rsa ubuntu@<client ip>
-    
-4. （可选）配置/etc/hosts
-==================
 
-可选：如果登录虚机之后执行sudo命令反应过慢，可以修改 /etc/hosts
-
-    sudo vim /etc/hosts
-    
-在server虚机里面，localhost后面加上server，在client虚机里面，localhost后面加上client
-
-
-5. 在server虚机里执行
+4. 在server虚机里执行
 ==========
 
     nc -v -l -p 12345
 
-6. 在client虚机里面执行
+5. 在client虚机里面执行
 ====================
 
     dd if=/dev/zero bs=1024K count=20 | nc -v <server ip> 12345
@@ -67,7 +57,7 @@
 
 注，这里也可以用iperf3测试带宽，不过iperf3需要安装，在实验环境安装需要的额外配置较多，所以改用netcat测试带宽。
 
-7. 清理环境
+6. 清理环境
 ========
 
     nova delete server client
