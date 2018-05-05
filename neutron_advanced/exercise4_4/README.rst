@@ -30,7 +30,7 @@
     
     nova console-log client
 
-3. 分别从dhcp namespace登录虚拟机
+4. 分别从dhcp namespace登录虚拟机
 =================
 
     sudo ip netns exec qdhcp-xxxxx bash
@@ -43,12 +43,12 @@
     
     ssh -i ~/.ssh/id_rsa ubuntu@<client ip>
 
-4. 在server虚机里执行
+5. 在server虚机里执行
 ==========
 
     nc -v -l -p 12345
 
-5. 在client虚机里面执行
+6. 在client虚机里面执行
 ====================
 
     dd if=/dev/zero bs=1024K count=20 | nc -v <server ip> 12345
@@ -63,4 +63,6 @@
     openstack server delete vm1
     
     openstack network delete net1
+    
+    openstack network qos delete dscp-marking
 
