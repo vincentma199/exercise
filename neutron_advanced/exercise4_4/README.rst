@@ -60,9 +60,9 @@
 6. 清理环境
 ========
 
-    openstack server delete vm1
+    openstack server delete server client
+    
+    openstack network delete net1
     
-    openstack network delete net1
-    
-    openstack network qos delete dscp-marking
+    openstack network qos policy delete bw-limiter
 
