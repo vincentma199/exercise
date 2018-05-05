@@ -50,4 +50,4 @@
     
     neutron net-delete net1
     
-    openstack network qos delete dscp-marking
+    openstack network qos policy delete dscp-marking
