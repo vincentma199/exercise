@@ -57,7 +57,7 @@
 
 注，这里也可以用iperf3测试带宽，不过iperf3需要安装，在实验环境安装需要的额外配置较多，所以改用netcat测试带宽。
 
-6. 清理环境
+7. 清理环境
 ========
 
     openstack server delete server client
