@@ -21,17 +21,30 @@
 
     sudo systemctl restart devstack@q-*
 
-2. 创建qos policy
+2. 配置计算节点
+==========
+
+    vim /etc/neutron/plugins/ml2/ml2_conf.ini
+    
+在[agent]配置分组后面添加
+
+    extensions = qos
+    
+之后重启neutron-openvswitch-agent
+
+    sudo systemctl restart devstack@q-agt
+
+3. 创建qos policy
 ============
 
     neutron qos-policy-create test
     
-3. 关联qos policy与network
+4. 关联qos policy与network
 ===============
 
     neutron net-create net1 --qos-policy test
 
-4. 清理环境
+5. 清理环境
 ========
 
     neutron net-delete net1
