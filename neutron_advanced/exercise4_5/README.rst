@@ -10,7 +10,7 @@
     
     openstack network qos rule create --type dscp-marking --dscp-mark 26 dscp-marking
 
-2. 创建网络，路由器，关联QoS
+2. 创建网络，关联QoS
 ==========
     
     openstack network create net1 --qos-policy dscp-marking
