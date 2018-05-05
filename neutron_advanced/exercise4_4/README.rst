@@ -15,13 +15,7 @@
     
     openstack network create net1 --qos-policy bw-limiter
     
-    openstack subnet create subnet1 --network net1 --subnet-range 10.0.0.0/24 --dns-nameserver 8.8.8.8
-    
-    openstack router create dvr
-    
-    openstack router add subnet dvr subnet1
-
-    openstack router set --external-gateway public dvr
+    openstack subnet create subnet1 --network net1 --subnet-range 10.0.0.0/24
     
 3. 创建虚拟机
 =========
@@ -29,7 +23,13 @@
     nova boot --image ubuntu --flavor d2 --nic net-name=net1 --availability-zone nova:openstack-controller --key-name=openstack-controller server
     
     nova boot --image ubuntu --flavor d2 --nic net-name=net1 --availability-zone nova:openstack-compute --key-name=openstack-controller client
+    
+等待虚机启动完成
+
+    nova console-log server
     
+    nova console-log client
+
 3. 分别从dhcp namespace登录虚拟机
 =================
 
@@ -43,38 +43,33 @@
     
     ssh -i ~/.ssh/id_rsa ubuntu@<client ip>
     
-4. 在两个虚拟机内部分别安装iperf3
+4. （可选）配置/etc/hosts
 ==================
 
-虚拟机之后，首先修改 /etc/hosts
+可选：如果登录虚机之后执行sudo命令反应过慢，可以修改 /etc/hosts
 
     sudo vim /etc/hosts
     
-在server虚机里面，localhost后面加上server，在client虚机里面，localhost后面加上client，之后都执行
+在server虚机里面，localhost后面加上server，在client虚机里面，localhost后面加上client
 
-    sudo apt update
-
-    sudo apt install iperf3 -y
 
 5. 在server虚机里执行
 ==========
 
-    iperf3 -s -p 12345
+    nc -v -l -p 12345
 
 6. 在client虚机里面执行
 ====================
 
-    iperf3 -c <server ip> -p 12345 -t 50
-    
-从结果可以看出，带宽被限制在了3000K/s.
+    dd if=/dev/zero bs=1024K count=20 | nc -v <server ip> 12345
+    
+从结果可以看出，带宽被限制在了375KB/s, 约等于3000Kb/s.
+
+注，这里也可以用iperf3测试带宽，不过iperf3需要安装，大家的实验环境安装包的配置需要较多，所以改用netcat测试带宽。
 
 7. 清理环境
 ========
 
-    nova delete vm1
-
-    neutron router-interface-delete legacy subnet1
-    
-    neutron router-delete legacy
+    nova delete server client
 
     neutron net-delete net1
